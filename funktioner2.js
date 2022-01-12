@@ -1,10 +1,15 @@
 function two() {
-    const number = prompt('Skriv in en siffra:');
-    if (number < 100) {
-        alert(`${number} är lägre än 100`)
+    const output = document.getElementById(arguments.callee.name)
+    const number = prompt('Skriv in en siffra');
+    if (!number) {
+        output.textContent = "Ingenting är ingenting"
+    } else if (isNaN(number)) {
+        output.textContent = `${number} är ingen siffra`
+    } else if (number < 100) {
+        output.textContent = `${number} är lägre än 100`
     } else if (number > 100) {
-        alert(`${number} är högre än 100`)
+        output.textContent = `${number} är högre än 100`
     } else {
-        alert(`${number} är 100`)
+        output.textContent = `${number} är 100`
     }
 }
