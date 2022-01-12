@@ -1,9 +1,9 @@
 function six() {
-    const six = document.getElementById('six');
+    const output = document.getElementById(arguments.callee.name)
     six.textContent = ""
     let number = 65536;
     while (number !== 1) {
-        six.textContent += number
+        output.textContent += number
         number /= 2
     }
 }
