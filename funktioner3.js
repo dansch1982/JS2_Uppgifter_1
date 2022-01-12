@@ -1,13 +1,15 @@
 function three() {
+    const output = document.getElementById(arguments.callee.name)
     const secret = Math.floor(Math.random() * 100)
     let guess = prompt("Gissa en siffra")
-    while (guess != secret) {
+    while (guess && !isNaN(guess) && guess != secret) {
         if (guess < secret) {
-            alert("Den hemliga siffran är högre än " + guess)
+            guess = prompt("Den hemliga siffran är högre än " + guess)
         } else {
-            alert("Den hemliga siffran är lägre än " + guess)
+            guess = prompt("Den hemliga siffran är lägre än " + guess)
         }
-        guess = prompt("Gissa en siffra")
     }
-    alert("Grattis, den hemliga siffran var " + secret)
+    if (guess && !isNaN(guess)) {
+        output.textContent = "Grattis, den hemliga siffran var " + secret
+    }
 }
