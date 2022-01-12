@@ -1,5 +1,6 @@
 //9a Vad kommer följande kod att skriva ut?
 function nine() {
+    const output = document.getElementById(arguments.callee.name)
     let text = '';
     const array = []
     const object = {
@@ -42,6 +43,5 @@ function nine() {
         })
         text += "\n"
     }
-    const nine = document.getElementById('nine')
-    nine.textContent = text
+    output.textContent = text
 }
