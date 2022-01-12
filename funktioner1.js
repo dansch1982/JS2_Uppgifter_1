@@ -1,8 +1,9 @@
 function one() {
+    const output = document.getElementById(arguments.callee.name)
     const password = "qwerty"
     if (prompt('Skriv in lösenord:') === password) {
-        alert("Rätt lösenord!")
+        output.textContent = "Rätt lösenord!"
     } else {
-        alert("Felaktigt lösenord!")
+        output.textContent = "Felaktigt lösenord!"
     }
 }
