@@ -1,5 +1,5 @@
 function seven() {
-    const seven = document.getElementById('seven')
+    const output = document.getElementById(arguments.callee.name)
     let string = "";
     let word = prompt('Skriv in ett ord')
     while (word !== "." && word) {
@@ -10,6 +10,6 @@ function seven() {
     string = word === "." ? string.trim() + word : string.trim()
     
     if (string) {
-        seven.textContent = string;
+        output.textContent = string;
     }
 }
