@@ -1,7 +1,7 @@
 function five() {
-    const five = document.getElementById('five')
+    const output = document.getElementById(arguments.callee.name)
     five.textContent = ""
     for (let index = 0; index < 16; index++) {
-        five.textContent += index+1
+        output.textContent += index+1
     }
 }
