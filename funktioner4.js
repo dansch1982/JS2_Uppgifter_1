@@ -1,10 +1,13 @@
 function four() {
+    const output = document.getElementById(arguments.callee.name)
     const months = getMonths();
-    let month = prompt('SKriv in en månad')
-    while (!months.find(item => item === month.toLowerCase())) {
-        month = prompt('SKriv in en månad')
+    let month = prompt('Skriv in en månad')
+    while (month && !months.find(item => item === month.toLowerCase())) {
+        month = prompt('Skriv in en månad')
     }
-    alert(`Månadens nummer är ${months.indexOf(month.toLowerCase())+1}`)
+    if (month) {
+        output.textContent = `Månadens nummer är ${months.indexOf(month.toLowerCase())+1}`
+    }
     function getMonths() {
         const months = Array.from({
             length: 12
