@@ -1,11 +1,11 @@
-function test(color, element) {
+function whyRecursive(color, element) {
   if (Array.isArray(element)) {
     element.pop().style.backgroundColor = color
-    if (element.length > 1) {
-      return test(color, element)
+    if (element.length > 0) {
+      whyRecursive(color, element)
     }
   } else {
     element = Array.from(element.getElementsByTagName("*"))
-    return test(color, element)
+    whyRecursive(color, element)
   }
 }
