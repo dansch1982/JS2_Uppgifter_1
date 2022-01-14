@@ -1,11 +1,14 @@
 #nine {
-    font-family: monospace;
     display: flex;
     flex-wrap: wrap;
 }
 [id] {
+    font-family: monospace;
     white-space: pre-line;
 }
 #nine span {
     padding: 5px;
+}
+button {
+    min-width: 3rem;
 }
