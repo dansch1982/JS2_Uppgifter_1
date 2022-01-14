@@ -1,5 +1,5 @@
 function fifteen(input) {
-
+    const output = document.getElementById(arguments.callee.name)
     input = isNaN(Math.floor(input)) ? Math.floor(input) : fibonacci(Math.floor(input))
     output.textContent = input
 }
