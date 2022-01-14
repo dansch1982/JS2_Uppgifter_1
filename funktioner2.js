@@ -1,3 +1,6 @@
+/* Skriv ett program som frågar användaren efter ett tal. Det ska
+skriva ut om talet är mindre än 100, lika med 100 eller större. */
+
 function two() {
     const output = document.getElementById(arguments.callee.name)
     const number = prompt('Skriv in en siffra');

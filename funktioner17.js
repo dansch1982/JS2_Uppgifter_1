@@ -1,3 +1,9 @@
+/* Skriv en rekursiv funktion som summerar alla tal i en lista. Tips:
+låt funktionen ta två parametrar, listan och en variabel med namnet
+index som har defaultvärde 0.
+Skriv en rekursiv funktion som returnerar det minsta talet i en
+lista. */
+
 function seventeen() {
     const output = document.getElementById(arguments.callee.name)
 

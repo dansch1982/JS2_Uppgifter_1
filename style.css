@@ -1,10 +1,9 @@
 #nine {
     font-family: monospace;
-    white-space: pre-line;
     display: flex;
     flex-wrap: wrap;
 }
-#seventeen {
+[id] {
     white-space: pre-line;
 }
 #nine span {

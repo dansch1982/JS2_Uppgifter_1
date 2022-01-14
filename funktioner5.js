@@ -1,3 +1,6 @@
+/* Skriv ett program som skriver ut talen 1 till 16 med hjälp av en
+loop. */
+
 function five() {
     const output = document.getElementById(arguments.callee.name)
     five.textContent = ""

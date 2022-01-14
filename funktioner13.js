@@ -1,3 +1,7 @@
+/* Skriv en funktion som tar en sträng som parameter och
+returnerar strängen baklänges. Tips: använd funktionen
+string.charAt. */
+
 function thirteen(input) {
     if (!input) return
     const output = document.getElementById(arguments.callee.name)

@@ -1,3 +1,10 @@
+/* Skriv en funktion som säger hur många dagar en månad har.
+Funktionen ska ha en parameter, som är en sträng som motsvarar
+månadens namn. Strängen ska vara de tre första tecknen i
+månadens namn, dvs jan, feb, mar, apr osv. Funktionen ska
+returnera ett tal. Exempelvis så är daysInMonth("mar")	==	31
+function daysInMonth(month="jan") { .. } */
+
 function eleven(inputMonth) {
     const output = document.getElementById(arguments.callee.name)
     const months = getMonths();

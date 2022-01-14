@@ -1,3 +1,8 @@
+/* Skriv ett program som ber användaren skriva in en månad.
+Programmet ska göra om månaden till månadens siffervärde. T.ex.
+ska januari bli 1 och december 12. Använd switch. Jämför din
+lösning med en klasskamrat när du är klar */
+
 function four() {
     const output = document.getElementById(arguments.callee.name)
     const months = getMonths();

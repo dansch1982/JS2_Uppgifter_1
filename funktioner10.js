@@ -1,3 +1,7 @@
+/* Skriv en funktion som tar fyra tal som parametrar. Den ska
+multiplicera de tre första och lägga ihop resultatet med den fjärde.
+Använd funktionerna add och multi. */
+
 function ten() {
     const output = document.getElementById(arguments.callee.name)
     const array = new Array();
