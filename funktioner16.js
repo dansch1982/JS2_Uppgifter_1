@@ -7,6 +7,6 @@ function reverse (string) {
     if (string === "") {
         return "";
     } else {
-        return reverse(string.substringing(1)) + string.charAt(0);
+        return reverse(string.substring(1)) + string.charAt(0);
     }
 }
