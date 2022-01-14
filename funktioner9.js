@@ -1,7 +1,19 @@
 //9a Vad kommer följande kod att skriva ut?
 function nine() {
     const output = document.getElementById(arguments.callee.name)
-    let text = '';
+    const array = [
+        (i, j,) => (i + j) % 2 === 0
+    ]
+for (let index = 0; index < array.length; index++) {
+    const check = array[index];
+    
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 8; j++) {
+            console.log(check(i,j))
+        }
+    }
+}
+/*     let text = '';
     const array = []
     const object = {
         "A": (i, j) => {
@@ -43,5 +55,5 @@ function nine() {
         })
         text += "\n"
     }
-    output.textContent = text
+    output.textContent = text */
 }
