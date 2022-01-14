@@ -4,6 +4,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+#seventeen {
+    white-space: pre-line;
+}
 #nine span {
     padding: 5px;
 }
