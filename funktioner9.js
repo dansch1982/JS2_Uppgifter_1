@@ -1,17 +1,32 @@
 //9a Vad kommer följande kod att skriva ut?
 function nine() {
     const output = document.getElementById(arguments.callee.name)
+    output.textContent = null;
     const array = [
-        (i, j,) => (i + j) % 2 === 0
+        (i, j,) => (i + j) % 2 === 0,
+        (i, j,) => j === 0,
+        (i, j,) => i === j,
+        (i, j,) => j >= 2 && j <= 4,
+        (i, j,) => j === 2 || i === 2,
+        (i, j,) => j === 5 - i || j === 4,
+        (i, j,) => j === 5 - i || j === i,
     ]
 for (let index = 0; index < array.length; index++) {
     const check = array[index];
-    
+    const span = document.createElement("span")
+    let text = "";
     for (let i = 0; i < 6; i++) {
         for (let j = 0; j < 8; j++) {
-            console.log(check(i,j))
+            if (check(i,j)) {
+                text += "*"
+            } else {
+                text += "."
+            }
         }
+        text += "\n"
     }
+    span.textContent = text
+    output.appendChild(span)
 }
 /*     let text = '';
     const array = []
