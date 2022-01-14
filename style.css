@@ -1,0 +1,9 @@
+#nine {
+    font-family: monospace;
+    white-space: pre-line;
+    display: flex;
+    flex-wrap: wrap;
+}
+#nine span {
+    padding: 5px;
+}
