@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Funktioner</title>
 </head>
 <style>
@@ -16,22 +17,8 @@
 <body>
 
     <section>
-        <button onclick="whyRecursive('turquoise', document.body)">test</button>
-        <article style="background-color: aqua;">
-            test
-            <article style="background-color: bisque;">
-                test
-                <article style="background-color: blue;">
-                    test
-                </article>
-                <div style="background-color: cadetblue;">test</div>
-            </article>
-        </article>
-    </section>
-
-    <section>
         <button onclick="one()">1</button>
-        <article id="one" style="background-color: aqua;"></article>
+        <article id="one"></article>
     </section>
 
     <section>
@@ -72,7 +59,7 @@
 
     <section>
         <button onclick="nine()">9</button>
-        <article id="nine" style="font-family: monospace;white-space: pre-line;"></article>
+        <article id="nine"></article>
     </section>
     
     <section>
@@ -104,6 +91,11 @@
         <button onclick='fifteen(prompt("Skriv in ett heltal"))'>15</button>
         <article id="fifteen"></article>
     </section>
+    
+    <section>
+        <button onclick='sixteen(prompt("Skriv in ett heltal"))'>16</button>
+        <article id="sixteen"></article>
+    </section>
 
     <script src="test.js"></script>
     <script src="funktioner1.js"></script>
@@ -121,6 +113,7 @@
     <script src="funktioner13.js"></script>
     <script src="funktioner14.js"></script>
     <script src="funktioner15.js"></script>
+    <script src="funktioner16.js"></script>
 </body>
 
 </html>
