@@ -2,13 +2,16 @@
     display: flex;
     flex-wrap: wrap;
 }
-[id] {
+[id], article {
     font-family: monospace;
     white-space: pre-line;
+    margin: 5px;
 }
 #nine span {
     padding: 5px;
 }
 button {
     min-width: 3rem;
+    padding: 5px;
+    margin: 5px;
 }
