@@ -1,4 +1,38 @@
 async function getData(input) {
+    
+    let div = document.getElementById(input ? input : "All")
+
+    if (div) {
+        div.removeChild(div.lastChild)
+    } else {
+        div = document.createElement('div')
+        div.id = input ? input : "All"
+        div.classList.add('searchlist')
+        
+        const article = document.createElement('article')
+
+        const title = document.createElement('h3')
+        title.textContent = input ? input : "All"
+        article.appendChild(title)
+
+        const button = document.createElement('button')
+        button.textContent = "Stäng"
+        button.addEventListener('click', () => {
+            let element = button.parentElement.parentElement
+            element.parentElement.removeChild(element)
+        })
+        article.appendChild(button)
+
+        div.appendChild(article)
+        const output = document.getElementById('output')
+        output.appendChild(div)
+        
+    }
+    
+    const p = document.createElement('p')
+    p.textContent = "Hämtar data..."
+    div.appendChild(p)
+
     const request = await fetch("https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1.json")
 
     const stations = (await request.json()).station
@@ -40,32 +74,8 @@ async function getData(input) {
             ul.appendChild(li)
         }
     }
-    if (document.getElementById(input)) {
-        const div = document.getElementById(input)
-        div.removeChild(div.lastChild)
-        div.appendChild(ul)
-    } else {
-        if (!input) input = "all"
-        const div = document.createElement('div')
-        div.id = input
-        div.classList.add('searchlist')
-        const article = document.createElement('article')
-        const title = document.createElement('h3')
-        title.textContent = input
-        article.appendChild(title)
-        const button = document.createElement('button')
-
-        button.addEventListener('click', () => {
-            let element = button.parentElement.parentElement
-            element.parentElement.removeChild(element)
-        })
-
-        button.textContent = "Stäng"
-        article.appendChild(button)
-        div.appendChild(article)
-        div.appendChild(ul)
-        output.appendChild(div)
-    }
+    div.removeChild(div.lastChild)
+    div.appendChild(ul)
 }
 
 function containJSON(array) {
@@ -78,8 +88,16 @@ function containJSON(array) {
     return false
 }
 
+const input = document.getElementById('input')
+input.addEventListener('keyup', () => {
+    if (event.keyCode === 13) {
+        btnSearch.click()
+    }
+})
+
 const btnSearch = document.getElementById('btnSearch')
 btnSearch.addEventListener('click', () => {
     const input = document.getElementById('input')
     getData(input.value)
+    input.value = null
 })
