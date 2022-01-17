@@ -15,3 +15,53 @@ button {
     padding: 5px;
     margin: 5px;
 }
+#output {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#search {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#search button {
+    margin: 0;
+}
+#search input {
+    margin: 0;
+}
+.searchlist {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    height: fit-content;
+}
+.searchlist > article {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.searchlist > article > h3 {
+    margin: 10;
+    padding: 0;
+}
+.searchlist > article > button {
+    margin: 10px;
+    justify-self: flex-end;
+}
+.searchlist > ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 17px;
+}
+.searchlist > ul li {
+    white-space: nowrap;
+}
