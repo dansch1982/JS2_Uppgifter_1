@@ -17,7 +17,6 @@ button {
 }
 #output {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
 }
 #search {
@@ -46,16 +45,15 @@ button {
 }
 .searchlist > article {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 .searchlist > article > h3 {
-    margin: 10;
+    margin: 1;
+    margin-right: 10px;
     padding: 0;
 }
 .searchlist > article > button {
     margin: 10px;
-    justify-self: flex-end;
+    margin-left: auto;
 }
 .searchlist > ul {
     margin: 0;
