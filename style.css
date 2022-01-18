@@ -49,11 +49,10 @@ button {
 .searchlist > article > h3 {
     margin: 1;
     margin-right: 10px;
-    padding: 0;
+    padding: 0px;
 }
 .searchlist > article > button {
-    margin: 10px;
-    margin-left: auto;
+    margin: 10px 0 10px auto;
 }
 .searchlist > ul {
     margin: 0;
