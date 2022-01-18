@@ -75,6 +75,12 @@ async function getData(input) {
         }
     }
     div.removeChild(div.lastChild)
+    console.log(ul.firstChild)
+    if (!ul.firstChild) {
+        const p = document.createElement('p')
+        p.textContent = "Inga träffar..."
+        ul.appendChild(p)
+    }
     div.appendChild(ul)
 }
 
