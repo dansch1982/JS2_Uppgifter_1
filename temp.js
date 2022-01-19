@@ -33,53 +33,82 @@ async function getData(input) {
     p.textContent = "Hämtar data..."
     div.appendChild(p)
 
-    const request = await fetch("https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1.json")
+    const stations = await getStations()
 
-    const stations = (await request.json()).station
+    async function getStations() {
+        const request = await fetch("https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1.json")
+        const stations = (await request.json()).station
+        return stations
+    }
 
-    const items = []
-    for (const key in stations) {
-        if (Object.hasOwnProperty.call(stations, key)) {
-            const element = stations[key];
-            
-            if (element.name.toLowerCase().startsWith(input.toLowerCase())) {
-                items.push(element)
+    const filteredStations = filterStations(input, stations)
+
+    function filterStations(string = "", stations = []) {
+        const filteredStations = []
+        for (const key in stations) {
+            if (Object.hasOwnProperty.call(stations, key)) {
+                const element = stations[key];
+                if (element.name.toLowerCase().startsWith(string.toLowerCase())) {
+                    filteredStations.push(element)
+                }
             }
         }
+        return filteredStations
     }
 
-    const active = []
+    const activeStations = getActiveStations(filteredStations)
 
-    for (let i = 0; i < items.length; i++) {
-        const element = items[i];
-        if (element.active) {
-            const url = containJSON(element.link)
-            if (!url) continue
-            active.push(await (await fetch(url)).json())
+    function getActiveStations(stations) {
+        const activeStations = []
+
+        for (let i = 0; i < stations.length; i++) {
+            const element = stations[i];
+            if (element.active) {
+                const url = containJSON(element.link)
+                if (!url) continue
+                activeStations.push({name:element.name, id:element.id})
+            }
         }
+        return activeStations
     }
+    const temperatures = await getTemperatures(activeStations)
 
-    const ul = document.createElement("ul")
-    for (let i = 0; i < active.length; i++) {
-        const element = active[i];
-        let url = containJSON(element.period[0].link)
-        if (!url) continue
-        const item = (await (await fetch(url)).json())
-        url = containJSON(item.data[0].link)
-        if (!url) continue
-        const temp = (await (await fetch(url)).json())
-        if (temp.value) {
+    async function getTemperatures(stations) {
+        const newArray = []
+        for (let i = 0; i < stations.length; i++) {
+            const element = stations[i];
+            const {id} = element
+            const url = `https://opendata-download-metobs.smhi.se/api/version/latest/parameter/1/station/${id}/period/latest-hour/data.json`
+            const temp = await fetch(url)
+            try {
+                element.temperature = (await temp.json()).value[0].value
+                newArray.push(element)
+            } catch (error) {
+                
+            }
+        }
+        return newArray
+    }
+    
+    const ul = createList(temperatures)
+
+    function createList(temperatures) {
+        const ul = document.createElement('ul')
+        for (let i = 0; i < temperatures.length; i++) {
+            const element = temperatures[i];
+            const {name, temperature} = element
             const li = document.createElement('li')
-            li.textContent = temp.station.name + ": " + temp.value[0].value
+            li.textContent = name + ": " + temperature
             ul.appendChild(li)
         }
+        return ul
     }
+
     div.removeChild(div.lastChild)
-    console.log(ul.firstChild)
     if (!ul.firstChild) {
-        const p = document.createElement('p')
-        p.textContent = "Inga träffar..."
-        ul.appendChild(p)
+        const li = document.createElement('li')
+        li.textContent = "Inga träffar..."
+        ul.appendChild(li)
     }
     div.appendChild(ul)
 }
